@@ -18,9 +18,7 @@ function MovieSearch() {
     tmdbService
       .getMovieList(`${currentPage}`, query)
       .then((res) => {
-        setTimeout(() => {
-          setLoading(false);
-        }, 1000);
+        setLoading(false);
         setTotalPages(res.data.total_pages);
         setMovieData(res.data.results);
       })
@@ -47,6 +45,7 @@ function MovieSearch() {
     <section className="wrapper">
       <Header onSearch={onSearch} />
       <Pagination
+        loading={loading}
         page={page}
         totalPages={totalPages}
         handlePagination={handlePagination}

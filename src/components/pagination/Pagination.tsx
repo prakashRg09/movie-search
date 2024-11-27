@@ -1,7 +1,7 @@
 import ResponsivePagination from "react-responsive-pagination";
 
-const Pagination = ({ page, totalPages, handlePagination }: any) => {
-  if (totalPages <= 1) return null;
+const Pagination = ({ loading, page, totalPages, handlePagination }: any) => {
+  if (totalPages <= 1 && loading) return null;
 
   return (
     <ResponsivePagination
